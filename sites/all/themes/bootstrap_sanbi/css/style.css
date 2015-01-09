@@ -6,3 +6,165 @@
 .biblio-entry a {
     color: black;
 }
+
+.page-search ol.breadcrumb,
+.page-search h1.page-header {
+    display: none;
+}
+
+ul.links {
+    float: right;
+    margin: 0;
+}
+ul.links li {
+    float: right;
+    list-style-type: none;
+    margin-left: 20px;
+}
+ul.links li a {
+    display: block;
+    
+}
+.btn-tertiary:hover, .btn-tertiary:focus, .btn-tertiary:active, .btn-tertiary.active, .open .dropdown-toggle.btn-tertiary, .btn-tertiary {
+    color: #FFF;
+    background-color: #7F6C99;
+    border-color: #7F6C99;
+}
+.btn-tertiary:hover, .btn-tertiary:focus, .btn-tertiary:active, .btn-tertiary.active, .open .dropdown-toggle.btn-tertiary {
+    color: #FFF;
+    background-color: #715d8c;
+    border-color: #715d8c;
+}
+.btn-secondary {
+    color: #FFF;
+    background-color: #76B87B;
+    border-color: #76B87B;
+}
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active, .open .dropdown-toggle.btn-secondary {
+    color: #FFF;
+    background-color: #6aa86e;
+    border-color: #6aa86e;
+}
+a#logo {
+    float: left;
+}
+header#navbar {
+    margin-top: 15px;
+}
+
+body.page-search {
+    background: center 95px url('/sites/all/themes/bootstrap_sanbi/img/header.jpg') no-repeat;  
+}
+#block-block-1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#block-block-1 h1 {
+    color: #FFF;
+    text-shadow:    2px 2px 10px rgba(0, 0, 0, 1),
+                            2px 2px 10px rgba(0, 0, 0, 1),
+                            2px 2px 10px rgba(0, 0, 0, 1);
+    text-align: center;
+    font-weight: bold;
+    font-size: 3em;
+}
+#block-block-1 h1 small {
+    color: #FFF;
+}
+.main-container {
+    margin-top: 20px;
+    min-height: 300px;
+}
+form#search-form #edit-basic {
+    display: block;
+    width: 80%;
+    margin: 0 auto 110px auto;
+}
+form#search-form .input-group-wrapper {
+    background-color: #FFF;
+    font-weight: bold;
+    padding: 10px 0px 10px 15px;
+    border-radius: 10px 0px 0px 10px; 
+    -moz-border-radius: 10px 0px 0px 10px; 
+    -webkit-border-radius: 10px 0px 0px 10px; 
+
+}
+form#search-form p {
+    padding: 6px 10px 0 0;
+    float: left;
+}
+form#search-form .input-group {
+    width: 62%;
+}
+form#search-form button.btn-primary {
+    border-radius: 0px 10px 10px 0px; 
+    -moz-border-radius: 0px 10px 10px 0px; 
+    -webkit-border-radius: 0px 10px 10px 0px; 
+    
+    font-weight: bold;
+    background-color: #1373c7;
+    padding: 10px 16px;
+    font-size: 21px;
+    line-height: 1.5;
+}
+form#search-form .col-md-10 {
+    padding-right: 0;
+}
+form#search-form .col-md-2 {
+    padding-left: 0;
+}
+.page-search h2 {
+    text-align: center;
+    font-weight: bold;
+}
+.node-type-seakey h3 a,
+.node-type-seakey h2.field-label a {
+    color: #333;
+}
+.node-type-seakey h3 a:hover,
+.node-type-seakey h2.field-label a:hover {
+    text-decoration: none;
+}
+.node-type-seakey h2.field-label {
+    font-weight: inherit;
+    font-size: 24px;
+}
+.node-type-seakey h3 {
+    font-size: 14px;
+    font-weight: bold;
+}
+.node-type-seakey ul.tabs--primary {
+    display: none;
+}
+.node-type-seakey .region-sidebar-first h1 {
+    font-size: 20px;
+    padding-left: 15px;
+    margin-top: 0;
+}
+.node-type-seakey .region-sidebar-first ul.nav li a {
+    padding: 5px 15px;
+}
+.node-type-seakey .field-name-field-sk-images h2 a div {
+    display: none;
+}
+ul.classification li {
+    list-style: none;
+    float: left;
+    display: block;
+    width: 200px;
+}
+ul.classification {
+    width: 500px;
+    overflow: auto;
+    margin-left: 0;
+    padding-left: 0;
+}
+.affix {
+    top: 5px;
+}
+.node-type-seakey .region-sidebar-first, #block-block-4 {
+    display: none;
+}
+.node-type-seakey .region-visible {
+    display: block;
+}

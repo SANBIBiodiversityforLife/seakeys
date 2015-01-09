@@ -80,3 +80,20 @@ label.error{
 .role-creator dl.node-type-list dd:first-of-type {
     display: block !important;
 }
+.page-user-edit fieldset {
+    display: none;
+} 
+
+.page-user-edit ul.tabs--primary li:first-child {
+    display: none;
+}
+
+.region-navigation #block-block-5 {
+    display: block;
+    float: none;
+}
+
+.region-navigation #block-block-5 a {
+    margin-right: 7px;
+    margin-top: 7px;
+}
