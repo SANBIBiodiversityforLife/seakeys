@@ -50,6 +50,12 @@ function bootstrap_sanbi_preprocess_html(&$variables) {
                     'weight' => '999',
                 )
             );
+            drupal_add_js(path_to_theme() . '/js/fancybox/source/jquery.fancybox.pack.js', array(
+                    'group' => JS_THEME,
+                    'scope' => 'footer',
+                    'weight' => '999',
+                )
+            );
             drupal_add_js(path_to_theme() . '/js/smooth-div-scroll-init.js', array(
                     'group' => JS_THEME,
                     'scope' => 'footer',
@@ -57,6 +63,11 @@ function bootstrap_sanbi_preprocess_html(&$variables) {
                 )
             );
             drupal_add_css(path_to_theme() . '/js/smooth-div-scroll/css/smoothDivScroll.css', array(
+                    'group' => CSS_THEME,
+                    'weight' => '999',
+                )
+            );
+            drupal_add_css(path_to_theme() . '/js/fancybox/source/jquery.fancybox.css', array(
                     'group' => CSS_THEME,
                     'weight' => '999',
                 )

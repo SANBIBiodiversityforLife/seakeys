@@ -176,3 +176,23 @@ ul.classification {
 #user-login-form li {
     list-style: none;
 }
+#smoothdivscroll img {
+    padding-right: 10px;
+}
+.fancybox-custom .fancybox-skin {
+    box-shadow: 0 0 50px #222;
+}
+
+#block-system-main ul.links {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#block-system-main li.print_pdf a {
+    background: top left no-repeat url('/sites/all/themes/bootstrap_sanbi/img/pdf.png');
+}
+#block-system-main li a {
+    padding: 15px 0 30px 55px;
+}
+#block-system-main li.print_html a {
+    background: top left no-repeat url('/sites/all/themes/bootstrap_sanbi/img/printer.png');
+}

@@ -62,7 +62,7 @@
     <?php 
     foreach($element['#items'] as $item) {
       $node = node_load($item['nid']);
-      print '<img src="' . image_style_url('medium', $node->field_image['und'][0]['uri']) . '">';
+      print '<a title="' . $node->field_image['und'][0]['title'] . '" class="fancybox" href="' . image_style_url('extra_large', $node->field_image['und'][0]['uri']) . '" data-fancybox-group="gallery"><img src="' . image_style_url('medium', $node->field_image['und'][0]['uri']) . '" alt="' . $node->field_image['und'][0]['alt'] . '" title="' . $node->field_image['und'][0]['title'] . '"></a>';
     }
     ?>
   </div>

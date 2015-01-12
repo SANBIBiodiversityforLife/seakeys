@@ -160,18 +160,18 @@
         <div class="region region-sidebar-first region-visible well affix-top">
             <section class="block block-block clearfix">
                 <h1>Jump to:</h1>
-                <ul class="nav"><li><a href="#field_map">Map &amp; Images</a></li>
+                <ul class="nav"><li><a href="#field_sk_images">Images</a></li>
                 <li><a href="#field_names">Names</a></li>
                 <li><a href="#field_description">Description</a></li>
                 <li><a href="#field_ecology">Ecology</a></li>
-                <li><a href="#field_biome">Biome</a></li>
                 <li><a href="#field_sk_habitat">Habitat</a></li>
+                <li><a href="#field_sk_biome">Biome</a></li>
                 <li><a href="#field_global_distribution">Global distribution</a></li>
                 <li><a href="#field_sa_distribution">Southern Africa distribution</a></li>
                 <li><a href="#field_residency_status">Residency status</a></li>
                 <li><a href="#field_uses">Uses and exploitation</a></li>
                 <li><a href="#field_legislation">Legislation</a></li>
-                <li><a href="#field_links">Links</a></li>
+                <li><a href="#field_other">Other</a></li>
                 <li><a href="#field_references">References</a></li>
                 </ul>
             </section> <!-- /.block -->
