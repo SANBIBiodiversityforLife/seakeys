@@ -16,6 +16,56 @@ function bootstrap_sanbi_form_user_login_block_alter(&$form, &$form_state, $form
 
 
 /**
+ * Implements hook_preprocess_html().
+ *
+ * @see html.tpl.php
+ */
+function bootstrap_sanbi_preprocess_html(&$variables) {
+    if(isset($variables['page']['content']['system_main']['nodes'])) {
+        $node = array_shift($variables['page']['content']['system_main']['nodes']);
+        $variables['theme_hook_suggestions'][] = 'html__' . $node['#bundle'];
+        
+        if($node['#bundle'] == 'seakey') {
+            drupal_add_js(path_to_theme() . '/js/smooth-div-scroll/js/jquery-ui-1.10.3.custom.min.js', array(
+                    'group' => JS_THEME,
+                    'scope' => 'footer',
+                    'weight' => '999',
+                )
+            );
+            drupal_add_js(path_to_theme() . '/js/smooth-div-scroll/js/jquery.mousewheel.min.js', array(
+                    'group' => JS_THEME,
+                    'scope' => 'footer',
+                    'weight' => '999',
+                )
+            );
+            drupal_add_js(path_to_theme() . '/js/smooth-div-scroll/js/jquery.kinetic.min.js', array(
+                    'group' => JS_THEME,
+                    'scope' => 'footer',
+                    'weight' => '999',
+                )
+            );
+            drupal_add_js(path_to_theme() . '/js/smooth-div-scroll/js/jquery.smoothdivscroll-1.3-min.js', array(
+                    'group' => JS_THEME,
+                    'scope' => 'footer',
+                    'weight' => '999',
+                )
+            );
+            drupal_add_js(path_to_theme() . '/js/smooth-div-scroll-init.js', array(
+                    'group' => JS_THEME,
+                    'scope' => 'footer',
+                    'weight' => '999',
+                )
+            );
+            drupal_add_css(path_to_theme() . '/js/smooth-div-scroll/css/smoothDivScroll.css', array(
+                    'group' => CSS_THEME,
+                    'weight' => '999',
+                )
+            );
+        }
+    }
+}
+
+/**
  * Implements hook_preprocess_page().
  *
  * @see page.tpl.php

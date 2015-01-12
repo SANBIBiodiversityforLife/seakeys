@@ -168,3 +168,11 @@ ul.classification {
 .node-type-seakey .region-visible {
     display: block;
 }
+
+
+#user-login-form ul {
+    padding-left: 0;
+}
+#user-login-form li {
+    list-style: none;
+}
