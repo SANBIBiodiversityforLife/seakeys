@@ -1,4 +1,5 @@
-jQuery(document).ready(function($) {
+
+jQuery(document).ready(function($) { 
     $('.region-sidebar-first').affix({
       offset: {
         top: 250,
@@ -24,6 +25,7 @@ jQuery(document).ready(function($) {
     $('.field-name-field-common-names h2.field-label').replaceWith('<h3>Common names</h3>');
     $('.field-name-field-synonyms h2.field-label').replaceWith('<h3>Synonyms</h3>');
     
+    // This is actually for the image gallery
     $("div#smoothdivscroll").smoothDivScroll({});    
 	$('.fancybox').fancybox();
 });

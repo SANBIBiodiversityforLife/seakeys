@@ -1,0 +1,5 @@
+See https://www.drupal.org/node/2410109
+
+In search_autocomplete.admin.js "$(input_selector).live("click", function () {" was originally used several times. 
+
+This won't work if the user has a newer version of jquery, so it was changed. The original code is still there in comments 1 line above.

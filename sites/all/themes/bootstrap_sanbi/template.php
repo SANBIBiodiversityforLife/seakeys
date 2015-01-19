@@ -26,6 +26,7 @@ function bootstrap_sanbi_preprocess_html(&$variables) {
         $variables['theme_hook_suggestions'][] = 'html__' . $node['#bundle'];
         
         if($node['#bundle'] == 'seakey') {
+            //drupal_add_js(path_to_theme() . '/js/smooth-div-scroll/js/jquery-ui-1.10.3.custom.min.js', array(
             drupal_add_js(path_to_theme() . '/js/smooth-div-scroll/js/jquery-ui-1.10.3.custom.min.js', array(
                     'group' => JS_THEME,
                     'scope' => 'footer',

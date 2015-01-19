@@ -19,13 +19,15 @@
 }
 .ui-theme-basic-green.ui-autocomplete-input {
   background-image: url("images/throbber.gif");
-  background-position: 100% 4px;
+  background-position: 99% 10px;
   background-repeat: no-repeat;
+  background-size: 17px 45px;
 }
 .ui-theme-basic-green.ui-autocomplete-loading {
   background-image: url("images/throbber.gif");
-  background-position: 100% -16px;
+  background-position: 99% -16px;
   background-repeat: no-repeat;
+  background-size: 17px 45px;
 }
 
 .ui-theme-basic-green.ui-widget-content {

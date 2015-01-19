@@ -60,7 +60,8 @@
 
       $("<ul id='sa_admin_menu'><div class='sa_title'>Search Aucomplete</div><li class='sa_add'>" + Drupal.t('add autocompletion') + "</li></ul>").appendTo($('body'));
 
-      $(input_selector).live("mouseover", function (event) {
+      //$(input_selector).live("mouseover", function (event) {
+      $("form.search-form").on("mouseover", "input#edit-keys", function (event) {
         var offset = $(this).offset();
 
         // display the context menu
@@ -76,23 +77,28 @@
       });
 
       // hide the menu when out or used
-      $(input_selector).live("click", function () {
+      //$(input_selector).live("click", function () {
+      $("form.search-form").on("click", "input#edit-keys", function () {
         $("#sa_admin_menu").hide();
       });
-      $(input_selector).live("mouseout", function () {
+      //$(input_selector).live("mouseout", function () {
+      $("form.search-form").on("mouseout", "input#edit-keys", function () {
         $("#sa_admin_menu").hide();
       });
 
       // hide the menu when out
-      $("#sa_admin_menu").live("mouseover", function(){
+      //$("#sa_admin_menu").live("mouseover", function(){
+      $("body").on("mouseover", "#sa_admin_menu", function () {
         $(this).show();
       });
-      $("#sa_admin_menu").live("mouseout", function(){
+      //$("#sa_admin_menu").live("mouseout", function(){
+      $("body").on("mouseout", "#sa_admin_menu", function () {
         $(this).hide();
       });
 
       // add a new autocompletion
-      $(".sa_add").live("click", function () {
+      //$(".sa_add").live("click", function () {
+      $("body").on("click", ".sa_add", function () {
         window.location = 'index.php?q=admin/config/search/search_autocomplete/add&selector=' + encodeURI(selector.replace('#', '%23'));
       });
 

@@ -196,3 +196,4 @@ ul.classification {
 #block-system-main li.print_html a {
     background: top left no-repeat url('/sites/all/themes/bootstrap_sanbi/img/printer.png');
 }
+header#navbar .navbar-collapse { padding-left: 0; }
