@@ -81,7 +81,7 @@ function bootstrap_sanbi_preprocess_html(&$variables) {
  * @see page.tpl.php
  */
 function bootstrap_sanbi_preprocess_page(&$variables) {
-    $variables['navbar_classes_array'] = [];
+    $variables['navbar_classes_array'] = Array();
     if(isset($variables['node']->type)) {
         // If the content type's machine name is "my_machine_name" the file
         // name will be "page--my-machine-name.tpl.php".
