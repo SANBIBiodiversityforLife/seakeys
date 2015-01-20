@@ -197,3 +197,8 @@ ul.classification {
     background: top left no-repeat url('/sites/all/themes/bootstrap_sanbi/img/printer.png');
 }
 header#navbar .navbar-collapse { padding-left: 0; }
+.how-to-cite {
+    margin: 40px 0 10px 0;
+    padding: 10px 0 15px 0;
+    background-color: #eaeaea;
+}

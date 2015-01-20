@@ -14,7 +14,6 @@ function bootstrap_sanbi_form_user_login_block_alter(&$form, &$form_state, $form
    print_r($form); // output in Krumo with the Devel module
 }*/
 
-
 /**
  * Implements hook_preprocess_html().
  *
@@ -24,7 +23,6 @@ function bootstrap_sanbi_preprocess_html(&$variables) {
     if(isset($variables['page']['content']['system_main']['nodes'])) {
         $node = array_shift($variables['page']['content']['system_main']['nodes']);
         $variables['theme_hook_suggestions'][] = 'html__' . $node['#bundle'];
-        
         if($node['#bundle'] == 'seakey') {
             //drupal_add_js(path_to_theme() . '/js/smooth-div-scroll/js/jquery-ui-1.10.3.custom.min.js', array(
             drupal_add_js(path_to_theme() . '/js/smooth-div-scroll/js/jquery-ui-1.10.3.custom.min.js', array(
@@ -122,9 +120,7 @@ function bootstrap_sanbi_preprocess_page(&$variables) {
 
 function bootstrap_sanbi_form_search_form_alter(&$form, &$form_state, $form_id) {
     $form['basic']['keys']['#prefix'] = '<div class="row"><div class="col-md-10"><div class="input-group-wrapper"><p>Search by keywords or phrase: </p>';
-    $form['basic']['keys']['#suffix'] = '</div></div><div class="col-md-2"><button type="submit" class="btn btn-primary">Search</button></div></div>';
-    //print_r($form);
-    
+    $form['basic']['keys']['#suffix'] = '</div></div><div class="col-md-2"><button type="submit" class="btn btn-primary">Search</button></div></div>';    
 }
 
 function bootstrap_sanbi_bootstrap_search_form_wrapper($variables) {
@@ -149,7 +145,5 @@ function bootstrap_sanbi_preprocess_field(&$variables) {
     if($variables['element']['#object']->type == 'seakey') {
         $temp = $variables;
         $field = $variables['element']['#field_name'];
-        //$variables['element']['#object']->$field;
-        //$variables['label']
     }
 }

@@ -1,0 +1,23 @@
+/**
+ * This file should get overwritten if Method 1 is used. If Method 2 is chosen,
+ * remove this comment and start adding your styles to this file.
+ */
+.print-content h2.field-label {
+    font-size: 14px !important;
+}
+.print-content h3 a,
+.print-content h2.field-label a {
+    color: #333;
+}
+
+.print-site_name {
+    padding: 80px 0 10px 0px;
+    background: url('/sites/all/themes/bootstrap_sanbi/logo.png') top left no-repeat;
+    font-weight: bold;
+    font-size: 16px;
+}
+body {
+  margin: 1em;
+  background-color: #fff;
+  font-family: sans-serif;
+}

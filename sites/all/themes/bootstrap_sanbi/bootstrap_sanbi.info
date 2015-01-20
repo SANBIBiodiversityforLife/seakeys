@@ -27,6 +27,7 @@ regions[page_bottom]    = 'Page bottom'
 scripts[] = js/script.js
 
 stylesheets[all][] = css/style.css
+stylesheets[all][] = css/style-print.css
 
 
 ; For information on choosing the desired method, please read the Drupal

@@ -26,7 +26,9 @@ jQuery(document).ready(function($) {
     $('.field-name-field-synonyms h2.field-label').replaceWith('<h3>Synonyms</h3>');
     
     // This is actually for the image gallery
-    $("div#smoothdivscroll").smoothDivScroll({});    
-	$('.fancybox').fancybox();
+    if($("div#smoothdivscroll img").length > 3) {
+        $("div#smoothdivscroll").smoothDivScroll({});    
+        $('.fancybox').fancybox();
+    }
 });
 

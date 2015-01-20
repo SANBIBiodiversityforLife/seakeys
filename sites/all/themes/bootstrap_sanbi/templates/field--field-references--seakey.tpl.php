@@ -66,3 +66,12 @@
     }
     ?>
 </div>
+
+<div class="how-to-cite">
+    <h4>How to cite</h4>
+    <?php 
+        $node = $element['#object']; //array_shift($page['content']['system_main']['nodes'])['#node']; 
+        $user = user_load($node->uid);
+        print($user->name . ', ' . date('Y', $node->created) . ', ' . $node->title . ', SeaKeys species page.');
+    ?>
+</div>
