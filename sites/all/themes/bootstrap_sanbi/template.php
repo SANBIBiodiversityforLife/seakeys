@@ -86,34 +86,36 @@ function bootstrap_sanbi_preprocess_page(&$variables) {
         // If the content type's machine name is "my_machine_name" the file
         // name will be "page--my-machine-name.tpl.php".
         $variables['theme_hook_suggestions'][] = 'page__' . $variables['node']->type;
-        if($variables['node']->type == 'seakey') {
-            $classification = $variables['page']['content']['system_main']['nodes'];
-            $classification = array_shift($classification);
-            $classification = $classification['field_biological_classification'];
-            $labelparts = explode(' > ', $classification['#title']);
-            $fieldparts = array();
-            $terms = taxonomy_get_parents_all($classification['#items'][0]['tid']);
-            foreach($terms as $delta => $term) {
-                $fieldparts[] = $term->name;
+        if(array_key_exists('system_main', $variables['page']['content'])) {
+            if($variables['node']->type == 'seakey') {
+                $classification = $variables['page']['content']['system_main']['nodes'];
+                $classification = array_shift($classification);
+                $classification = $classification['field_biological_classification'];
+                $labelparts = explode(' > ', $classification['#title']);
+                $fieldparts = array();
+                $terms = taxonomy_get_parents_all($classification['#items'][0]['tid']);
+                foreach($terms as $delta => $term) {
+                    $fieldparts[] = $term->name;
+                }
+                $fieldparts = array_reverse($fieldparts);
+                $genus = '';
+                $species = '';
+                $output = '<ul class="classification">';
+                foreach($labelparts as $delta => $item) {
+                    if($delta == 5)
+                        $genus =  $fieldparts[$delta];
+                    else if($delta == 6)
+                        $species = $fieldparts[$delta];
+                    else
+                        $output .= '<li><strong>' . $item . '</strong>: ' . $fieldparts[$delta] . '</li>';
+                }
+                $output .=  '</ul>';
+                $link = ' <a role="button" class="btn btn-primary" href="/node/' . $classification['#object']->nid . '/edit">Edit</a>';
+                if(!user_access("edit any seakey content"))
+                    $link = '';
+                $output = '<h1>' . $genus . ' ' . $species . $link .'</h1>' . $output;
+                $variables['page']['output'] = $output;
             }
-            $fieldparts = array_reverse($fieldparts);
-            $genus = '';
-            $species = '';
-            $output = '<ul class="classification">';
-            foreach($labelparts as $delta => $item) {
-                if($delta == 5)
-                    $genus =  $fieldparts[$delta];
-                else if($delta == 6)
-                    $species = $fieldparts[$delta];
-                else
-                    $output .= '<li><strong>' . $item . '</strong>: ' . $fieldparts[$delta] . '</li>';
-            }
-            $output .=  '</ul>';
-            $link = ' <a role="button" class="btn btn-primary" href="/node/' . $classification['#object']->nid . '/edit">Edit</a>';
-            if(!user_access("edit any seakey content"))
-                $link = '';
-            $output = '<h1>' . $genus . ' ' . $species . $link .'</h1>' . $output;
-            $variables['page']['output'] = $output;
         }
     }
 }
