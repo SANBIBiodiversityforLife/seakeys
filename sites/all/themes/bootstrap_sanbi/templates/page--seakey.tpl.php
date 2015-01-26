@@ -173,6 +173,7 @@
                 <li><a href="#field_legislation">Legislation</a></li>
                 <li><a href="#field_other">Other</a></li>
                 <li><a href="#field_references">References</a></li>
+                <li><a href="#how_to_cite">How to cite</a></li>
                 </ul>
             </section> <!-- /.block -->
         </div>

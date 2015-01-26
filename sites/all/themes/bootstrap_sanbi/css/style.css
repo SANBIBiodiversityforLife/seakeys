@@ -176,7 +176,7 @@ ul.classification {
 #user-login-form li {
     list-style: none;
 }
-#smoothdivscroll img {
+.field-name-field-sk-images img {
     padding-right: 10px;
 }
 .fancybox-custom .fancybox-skin {
@@ -201,4 +201,7 @@ header#navbar .navbar-collapse { padding-left: 0; }
     margin: 40px 0 10px 0;
     padding: 10px 0 15px 0;
     background-color: #eaeaea;
+}
+.node-type-seakey h1 {
+    font-style: italic;
 }

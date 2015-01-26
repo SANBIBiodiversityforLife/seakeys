@@ -68,7 +68,7 @@
 </div>
 
 <div class="how-to-cite">
-    <h4>How to cite</h4>
+    <h4><a name="how_to_cite">How to cite</a></h4>
     <?php 
         $node = $element['#object']; //array_shift($page['content']['system_main']['nodes'])['#node']; 
         $user = user_load($node->uid);

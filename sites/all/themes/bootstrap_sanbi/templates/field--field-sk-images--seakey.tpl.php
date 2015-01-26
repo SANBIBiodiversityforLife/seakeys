@@ -58,11 +58,14 @@
   <?php if (!$label_hidden): ?>
     <h2 class="field-label"<?php print $title_attributes; ?>><a name="<?php print $element['#field_name'] ?>"><?php print $label ?></a></h2>
   <?php endif; ?>
-  <div id="smoothdivscroll">
+  <div id="<?php if(count($element['#items']) > 3) { print('smoothdivscroll'); } ?>">
     <?php 
     foreach($element['#items'] as $item) {
       $node = node_load($item['nid']);
-      print '<a title="' . $node->field_image['und'][0]['title'] . '" class="fancybox" href="' . image_style_url('extra_large', $node->field_image['und'][0]['uri']) . '" data-fancybox-group="gallery"><img src="' . image_style_url('medium', $node->field_image['und'][0]['uri']) . '" alt="' . $node->field_image['und'][0]['alt'] . '" title="' . $node->field_image['und'][0]['title'] . '"></a>';
+      $title = $node->field_image['und'][0]['title'];
+      $title .= ' - &copy; ' . $node->field_iptc_copyright_notice['und'][0]['safe_value'];
+      $title .= ' &amp photographed by: ' . $node->field_iptc_by_line['und'][0]['safe_value'];
+      print '<a title="' . $title . '" class="fancybox" href="' . image_style_url('extra_large', $node->field_image['und'][0]['uri']) . '" data-fancybox-group="gallery"><img src="' . image_style_url('medium', $node->field_image['und'][0]['uri']) . '" alt="' . $node->field_image['und'][0]['alt'] . '" title="' . $title . '"></a>';
     }
     ?>
   </div>
