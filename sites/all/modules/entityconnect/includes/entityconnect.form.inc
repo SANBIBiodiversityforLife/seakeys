@@ -199,6 +199,7 @@ function entityconnect_add_form_element_edit(&$widget_element, $language, $field
  * and redirect to the add or edit page with an append build_cached_id.
  */
 function entityconnect_add_edit_button_submit(&$form, &$form_state) {
+    kpr($form['#build_id']);
   $cache_id = "entityconnect-" . $form['#build_id'];
   $field = $form_state['clicked_button']['#field'];
   $key   = $form_state['clicked_button']['#key'];
