@@ -28,5 +28,48 @@ jQuery(document).ready(function($) {
     // This is actually for the image gallery
     $("div#smoothdivscroll").smoothDivScroll({});    
     $('.fancybox').fancybox();
+    
+    
+    var species = $('#seakey-title').text();
+    species = species.replace(' ','-');
+    $.ajax({
+      dataType: "jsonp",
+      url: 'http://api.iucnredlist.org/index/species/'+species+".js",
+      success: function (row) {
+        if(row.length > 0) {
+            var txt = row[0].category + " (Last assessed: " + row[0].modified_year + ")<br><br>"+ row[0].rationale;
+            $("p#iucn-status").html(txt);
+        /* see https://www.assembla.com/spaces/sis/wiki/Red_List_API?version=3
+            var id = row[0].species_id;
+            $.ajax({
+              dataType: "jsonp",
+              url: 'http://api.iucnredlist.org/details/'+id+"/0.js",
+              success: function (data) {
+                var blob = data[0].species_account;
+                var txt = data;
+                console.log(txt);
+                  var blob = data[0].species_account;
+                  $("#full_result").get(0).innerHTML = blob;
+                  var cat = $('#red_list_category_title').get(0).innerHTML;
+                  var code = $('#red_list_category_code').get(0).innerHTML;
+                  var year = $('#modified_year').get(0).innerHTML;
+                  var summary = ""+code+" - "+cat+" (updated "+year+")";
+                  $('#full_result').hide()
+                  $("#summary").get(0).innerHTML = summary;
+                  $("#summary_justification").get(0).innerHTML = $('#justification').get(0).innerHTML;
+                  $('#full_button').show()
+              }
+            });*/
+        }
+        else {
+            var txt = 'Not assessed';
+            $("p#iucn-status").html(txt);
+        }
+      },
+      failure: function () {
+        var txt = 'IUCN lookup service is temporarily down';
+        $("p#iucn-status").html(txt);
+      }
+    });
 });
 

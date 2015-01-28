@@ -54,6 +54,14 @@
  
  */
 ?>
+
+<div class="field field-name-field-iucn field-type-text-long field-label-above">
+    <h2 class="field-label"><a name="field_iucn">IUCN Red List status</a></h2>
+    <div class="field-items">
+        <p id="iucn-status"></p>
+    </div>
+</div>
+
 <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <?php if (!$label_hidden): ?>
     <h2 class="field-label"<?php print $title_attributes; ?>><a name="<?php print $element['#field_name'] ?>"><?php print $label ?></a></h2>

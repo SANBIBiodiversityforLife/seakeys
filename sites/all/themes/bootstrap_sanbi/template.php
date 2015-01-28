@@ -82,7 +82,7 @@ function bootstrap_sanbi_preprocess_html(&$variables) {
  */
 function bootstrap_sanbi_preprocess_page(&$variables) {
     $variables['navbar_classes_array'] = Array();
-    if(isset($variables['node']->type)) {
+    if(isset($variables['node']->type)) {    
         // If the content type's machine name is "my_machine_name" the file
         // name will be "page--my-machine-name.tpl.php".
         $variables['theme_hook_suggestions'][] = 'page__' . $variables['node']->type;
@@ -113,7 +113,7 @@ function bootstrap_sanbi_preprocess_page(&$variables) {
                 $link = ' <a role="button" class="btn btn-primary" href="/node/' . $classification['#object']->nid . '/edit">Edit</a>';
                 if(!user_access("edit any seakey content"))
                     $link = '';
-                $output = '<h1>' . $genus . ' ' . $species . $link .'</h1>' . $output;
+                $output = '<h1><span id="seakey-title">' . $genus . ' ' . $species . '</span>' . $link .'</h1>' . $output;
                 $variables['page']['output'] = $output;
             }
         }
