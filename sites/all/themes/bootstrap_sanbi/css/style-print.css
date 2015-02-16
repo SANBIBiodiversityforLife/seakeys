@@ -21,8 +21,11 @@ body {
   background-color: #fff;
   font-family: sans-serif;
 }
-.print-content h2 {
-    font-style: italic;
+.print-content h1 {
     font-size: 3em;
     font-weight: bold;
+}
+
+.print-content #show-for-print {
+    display: block;
 }

@@ -3,7 +3,7 @@
 /**
  * @file
  * Search Autocomplete
- * Helper functions to retrive suggestions from database
+ * Helper functions to retrieve suggestions from database
  *
  * Sponsored by:
  * www.axiomcafe.fr
@@ -52,24 +52,24 @@ function search_autocomplete_form_configure($form, &$form_state) {
     $form['search_autocomplete_how']['max_sug'] = array(
       '#type'           => 'textfield',
       '#title'          => t('Limit of the autocomplete search result'),
-      '#description'    => t('Please enter the maximim number of suggestion to display.'),
+      '#description'    => t('Please enter the maximum number of suggestion to display.'),
       '#default_value'  => $item->max_sug,
       '#maxlength'      => 2,
       '#required'       => TRUE,
     );
 
-    // Check if form should be autosubmitted.
+    // Check if form should be auto submitted.
     $form['search_autocomplete_how']['auto_submit'] = array(
       '#type'           => 'checkbox',
       '#title'          => t('Auto Submit'),
       '#description'    => t('If enabled, the form will be submitted automatically as soon as your user choose a suggestion in the popup list.'),
       '#default_value'  => $item->auto_submit,
     );
-    // Check if form should be autoredirected.
+    // Check if form should be auto redirected.
     $form['search_autocomplete_how']['auto_redirect'] = array(
       '#type'           => 'checkbox',
       '#title'          => t('Auto Redirect'),
-      '#description'    => t('If enabled, the user will be directly routed to the suggestion he choosed instead of performing form validation process. Only works if "link" attribute is existing and if "Auto Submit" is enabled.'),
+      '#description'    => t('If enabled, the user will be directly routed to the suggestion he chooses instead of performing form validation process. Only works if "link" attribute is existing and if "Auto Submit" is enabled.'),
       '#default_value'  => $item->auto_redirect,
     );
 
@@ -78,20 +78,20 @@ function search_autocomplete_form_configure($form, &$form_state) {
     // "View all results" custom configurations
     $form['search_autocomplete_how']['view_all_results'] = array(
         '#type'           => 'fieldset',
-        '#title'          => t('Custom behavior when some suggestions are available'),
+        '#title'          => t('Custom behaviour when some suggestions are available'),
         '#collapsible'    => TRUE,
         '#collapsed'      => TRUE,
     );
-    // Check if form should be autosubmitted.
+    // Check if form should be auto submitted.
     $form['search_autocomplete_how']['view_all_results']['all_results_label'] = array(
         '#type'           => 'textfield',
         '#title'          => t('Custom "view all results" message label'),
         '#description'    => t('This message is going to be displayed at the end of suggestion list when suggestions are found. Leave empty to disable this functionality. You can use HTML tags as well as the token [search-phrase] to replace user input.'),
-        '#default_value'  => $all_results->label,
+        '#default_value'  => t($all_results->label),
         '#maxlength'      => 255,
         '#required'       => FALSE,
     );
-    // Check if form should be autosubmitted.
+    // Check if form should be auto submitted.
     $form['search_autocomplete_how']['view_all_results']['all_results_value'] = array(
         '#type'           => 'textfield',
         '#title'          => t('Custom "view all results" message value'),
@@ -100,7 +100,7 @@ function search_autocomplete_form_configure($form, &$form_state) {
         '#maxlength'      => 255,
         '#required'       => FALSE,
     );
-    // Check if form should be autosubmitted.
+    // Check if form should be auto submitted.
     $form['search_autocomplete_how']['view_all_results']['all_results_link'] = array(
         '#type'           => 'textfield',
         '#title'          => t('Custom "view all results" URL redirection'),
@@ -115,20 +115,20 @@ function search_autocomplete_form_configure($form, &$form_state) {
     // "No resuls" custom configurations
     $form['search_autocomplete_how']['no_results'] = array(
         '#type'           => 'fieldset',
-        '#title'          => t('Custom behavior when no suggestions are found'),
+        '#title'          => t('Custom behaviour when no suggestions are found'),
         '#collapsible'    => TRUE,
         '#collapsed'      => TRUE,
     );
-    // Check if form should be autosubmitted.
+    // Check if form should be auto submitted.
     $form['search_autocomplete_how']['no_results']['no_results_label'] = array(
         '#type'           => 'textfield',
         '#title'          => t('Custom "no result" message label'),
         '#description'    => t('This message is going to be displayed when no suggestions can be found. Leave empty to disable this functionality. You can use HTML tags as well as the token [search-phrase] to replace user input.'),
-        '#default_value'  => $no_results->label,
+        '#default_value'  => t($no_results->label),
         '#maxlength'      => 255,
         '#required'       => FALSE,
     );
-    // Check if form should be autosubmitted.
+    // Check if form should be auto submitted.
     $form['search_autocomplete_how']['no_results']['no_results_value'] = array(
         '#type'           => 'textfield',
         '#title'          => t('Custom "no result" message value'),
@@ -137,7 +137,7 @@ function search_autocomplete_form_configure($form, &$form_state) {
         '#maxlength'      => 255,
         '#required'       => FALSE,
     );
-    // Check if form should be autosubmitted.
+    // Check if form should be auto submitted.
     $form['search_autocomplete_how']['no_results']['no_results_link'] = array(
         '#type'           => 'textfield',
         '#title'          => t('Custom "no result" URL redirection'),
@@ -155,7 +155,6 @@ function search_autocomplete_form_configure($form, &$form_state) {
       '#description'    => t('Choose which data should be added to autocompletion suggestions.'),
       '#collapsible'    => TRUE,
       '#collapsed'      => FALSE,
-      '#theme'          => 'search_autocomplete_form_configuration_fieldset',
     );
     $form['search_autocomplete_what']['suggestions'] = array(
       '#type'           => 'item',
@@ -297,16 +296,6 @@ function search_autocomplete_form_configure_submit($form, &$form_state) {
   $callback = $values['callback_textfield'];
   // Static resource => type = 2.
   $data_type = $values['suggestions'];
-  if ($data_type == 'callback' && $callback != '') {
-    // If path is absolute:
-    if (url_is_external($callback)) {
-      // If path is internal:
-      if (strcmp(substr($callback, 0, strlen($base_url)), $base_url) === 0) {
-        // Get it relative.
-        $callback = str_replace($base_url . "/", "", $callback);
-      }
-    }
-  }
   // In the case of view, we use a custom callback to retrieve the view data.
   if ($data_type == 'view') {
     $callback = 'search_autocomplete/autocomplete/' . $values['fid'] . '/';
@@ -317,7 +306,7 @@ function search_autocomplete_form_configure_submit($form, &$form_state) {
     'value' => $values['all_results_value'],
     'link' => $values['all_results_link'],
     'group' => array(
-  	 'group_id' => 'all_results',
+      'group_id' => 'all_results',
     ),
   );
   $no_results = array(
@@ -325,7 +314,7 @@ function search_autocomplete_form_configure_submit($form, &$form_state) {
     'value' => $values['no_results_value'],
     'link' => $values['no_results_link'],
     'group' => array(
-      	 'group_id' => 'no_results',
+      'group_id' => 'no_results',
     ),
   );
 
@@ -370,7 +359,7 @@ function search_autocomplete_form_configure_submit($form, &$form_state) {
   // ###.
   drupal_clear_css_cache();
   $form_state['redirect'] = 'admin/config/search/search_autocomplete';
-  $ok_query ? drupal_set_message(t("Configuration success !")) : drupal_set_message(t("An error has occured while saving the settings. Please, double check your settings!"), 'error');
+  $ok_query ? drupal_set_message(t("Configuration success!")) : drupal_set_message(t("An error has occurred while saving the settings. Please double check your settings!"), 'error');
 }
 
 // ///////////////////////////////////////////////////////////////////////// //

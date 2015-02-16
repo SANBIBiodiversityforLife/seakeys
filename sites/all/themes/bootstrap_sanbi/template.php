@@ -86,11 +86,15 @@ function bootstrap_sanbi_preprocess_page(&$variables) {
         // If the content type's machine name is "my_machine_name" the file
         // name will be "page--my-machine-name.tpl.php".
         $variables['theme_hook_suggestions'][] = 'page__' . $variables['node']->type;
-        if(array_key_exists('system_main', $variables['page']['content'])) {
-            if($variables['node']->type == 'seakey') {
-                $classification = $variables['page']['content']['system_main']['nodes'];
-                $classification = array_shift($classification);
-                $classification = $classification['field_biological_classification'];
+        //kpr($variables);
+        if($variables['node']->type == 'seakey') {
+            if(array_key_exists('system_main', $variables['page']['content'])) {
+                $nodes = $variables['page']['content']['system_main']['nodes'];
+                $node = array_shift($nodes);
+                
+                // Now we go through the arduous process of trying to get the tax terms
+                // note if you change anything here you need to change it in the field--field-biological-classification--seakey.tpl.php too
+                $classification = $node['field_biological_classification'];
                 $labelparts = explode(' > ', $classification['#title']);
                 $fieldparts = array();
                 $terms = taxonomy_get_parents_all($classification['#items'][0]['tid']);
@@ -113,8 +117,24 @@ function bootstrap_sanbi_preprocess_page(&$variables) {
                 $link = ' <a role="button" class="btn btn-primary" href="/node/' . $classification['#object']->nid . '/edit">Edit</a>';
                 if(!user_access("edit any seakey content"))
                     $link = '';
-                $output = '<h1><span id="seakey-title">' . $genus . ' ' . $species . '</span>' . $link .'</h1>' . $output;
+                
+                $output = '<h1><span id="seakey-title">' . $genus . ' ' . $species . '</span> <small>' . $node['field_name_published_in']['#items'][0]['safe_value'] . '</small>' . $link .'</h1>' . $output;
                 $variables['page']['output'] = $output;
+            }
+            else {
+                // Annoyingly it doesn't seem to be possible to do this any other way
+                
+                
+                
+                $terms = taxonomy_get_parents_all($variables['node']->field_biological_classification['und'][0]['tid']);
+                $genus = $terms[1]->name;
+                $species = $terms[0]->name;
+                
+                
+                $author = $variables['node']->field_name_published_in['und'][0]['safe_value']; 
+                $variables['node']->content = preg_replace('#<h2>[^<]+</h2>#', '<h1><span id="seakey-title">' . $genus . ' ' . $species . '</span> <small>' . $author . ' </small></h1>', $variables['node']->content);
+                
+                
             }
         }
     }
@@ -147,5 +167,12 @@ function bootstrap_sanbi_preprocess_field(&$variables) {
     if($variables['element']['#object']->type == 'seakey') {
         $temp = $variables;
         $field = $variables['element']['#field_name'];
+        
+        if($variables['element']['#field_name'] == 'field_biological_classification') {
+            //kpr($variables);
+            //if($variables['items']['0']['#markup'] == 'thedefaultvalue') {
+            //	$variables['items']['0']['#markup'] = '';
+            //}
+        }
     }
 }

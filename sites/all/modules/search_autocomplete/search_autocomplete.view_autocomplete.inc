@@ -99,7 +99,7 @@ function _search_autocomplete_render_fields($view, $row) {
  * @deprecated The $option parameter in PHP 5.4.0 json_encode() deprecates this
  * function.
  *
- * @see _search_autocomplete_json_encode
+ * @see _search_autocomplete_json_encode()
  */
 function _search_autocomplete_encode_formatted($json, $depth = 0) {
 
@@ -160,21 +160,6 @@ function _search_autocomplete_encode_formatted($json, $depth = 0) {
 }
 
 /**
- * Helper function to finish debugging.
- *
- * @param mixed $var
- *   A variable to dump.
- * @param string $location
- *   A location to output.
- */
-function _search_autocomplete_debug_stop($var, $location) {
-  print("Location:$location\n");
-  var_dump($var);
-  module_Invoke_all('exit');
-  exit;
-}
-
-/**
  * Implements hook_views_default_views().
  */
 function search_autocomplete_views_default_views() {
@@ -208,8 +193,8 @@ function search_autocomplete_view_autocomplete() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Appliquer';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Trier par';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sort by';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '15';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -317,8 +302,8 @@ function search_autocomplete_view_autocomplete() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Appliquer';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Trier par';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sort by';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '15';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -411,8 +396,8 @@ function search_autocomplete_view_autocomplete() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Appliquer';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Trier par';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sort by';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '15';
   $handler->display->display_options['style_plugin'] = 'search_autocomplete';

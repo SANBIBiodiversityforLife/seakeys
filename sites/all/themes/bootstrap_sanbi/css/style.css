@@ -202,6 +202,9 @@ header#navbar .navbar-collapse { padding-left: 0; }
     padding: 10px 0 15px 0;
     background-color: #eaeaea;
 }
-.node-type-seakey h1 {
+.node-type-seakey #show-for-print {
+    display: none;
+}
+#seakey-title {
     font-style: italic;
 }

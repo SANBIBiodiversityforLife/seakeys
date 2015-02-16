@@ -84,18 +84,18 @@ foreach($variables['#items'] as $item) {
     $fieldparts = array_reverse($fieldparts);
     $genus = '';
     $species = '';
-    $output = '<ul>';
+    $output = '<ul class="classification" id="show-for-print">';
     foreach($labelparts as $delta => $item) {
         if($delta == 5)
             $genus =  $fieldparts[$delta];
         else if($delta == 6)
             $species = $fieldparts[$delta];
         else
-            $output .= '<li>' . $item . ': ' . $fieldparts[$delta] . '</li>';
+            $output .= '<li><strong>' . $item . '</strong>: ' . $fieldparts[$delta] . '</li>';
     }
     $output .=  '</ul>';
-    $output = '<h1>' . $genus . ' ' . $species . '</h1>' . $output;
-    //print $output;
+    //$output = '<h1>' . $genus . ' ' . $species . '</h1>' . $output;
+    print $output;
     ?>
   
 </div>
