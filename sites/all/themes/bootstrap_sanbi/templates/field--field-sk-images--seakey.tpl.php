@@ -102,7 +102,7 @@
     $output .= '</div></div>';
 
     if($map_exists) {
-        $output .= '</div><div class="col-sm-3" id="map"><h2 class="field-label"><a name="field_map">Map</a></h2><a href="' . $map_src .'" class="fancybox"><img src="' . $map_src . '"></a></div></div>';
+        $output .= '</div><div class="col-sm-3" id="map"><h2 class="field-label"><a name="field_map">Map</a></h2><a title="Distribution map. Right click and click save image to download" href="' . $map_src .'" class="fancybox"><img src="' . $map_src . '"></a></div></div>';
     }
 
     print $output;
