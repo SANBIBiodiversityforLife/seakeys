@@ -1,0 +1,3 @@
+name = Seakeys duplicate file
+description = Duplicates species distribution (field_map_data) files so we can keep track of new ones
+core = 7.x

@@ -1,0 +1,31 @@
+<?php
+
+function duplicate_file_node_insert($node) {
+  // See if a file has been added
+  if ($file_items = field_get_items('node', $node, 'field_map_data')) {
+    // Get the first file item
+    duplicate_cck_file(array_shift($file_items), $node->nid);
+  }
+}
+
+function duplicate_file_node_update($node) {
+  // See if a file is present
+  if ($file_items = field_get_items('node', $node, 'field_map_data')) {
+    // Get the first file item
+    duplicate_cck_file(array_shift($file_items), $node->nid);
+  }
+}
+
+function duplicate_cck_file($file_item, $nid) {
+    // Load the file object from the cache/database
+    $file = file_load($file_item['fid']);
+
+    // The path to the file is in $file->uri, put it in the right format (not public://) sites/default/files/seakey-map-data/template.csv
+    $url = '/' . variable_get('file_public_path', conf_path() . '/files') . '/' . file_uri_target($file->uri);
+    
+    // Make the todo file name
+    preg_match('#\.\w{2,4}$#', $url, $matches);
+    $ext = $matches[0];
+    $todo_url = preg_replace('#[^/]+?\.\w{2,5}$#', '', $url) . 'todo/' . $nid . $ext;
+    copy(getcwd() . str_replace('/', '\\', $url), getcwd() . str_replace('/', '\\', $todo_url));
+}
