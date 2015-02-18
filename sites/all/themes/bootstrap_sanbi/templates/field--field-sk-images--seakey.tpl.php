@@ -86,7 +86,7 @@
         $output .= '<h2 class="field-label"' . $title_attributes . '><a name="' . $element['#field_name'] . '">' . $label . '</a></h2>';
     }
     $output .= '<div';
-    if(count($element['#items']) > 3 or true) { 
+    if(count($element['#items']) > 3) { 
         $output .= ' id="smoothdivscroll"'; 
     }
     $output .= '>';
