@@ -122,19 +122,14 @@ function bootstrap_sanbi_preprocess_page(&$variables) {
                 $variables['page']['output'] = $output;
             }
             else {
-                // Annoyingly it doesn't seem to be possible to do this any other way
-                
-                
-                
+                // This is triggered for print pages
+                // Annoyingly it doesn't seem to be possible to do this any other way, but
+                // We need to display genus + species + author for the title, 
                 $terms = taxonomy_get_parents_all($variables['node']->field_biological_classification['und'][0]['tid']);
                 $genus = $terms[1]->name;
                 $species = $terms[0]->name;
-                
-                
                 $author = $variables['node']->field_name_published_in['und'][0]['safe_value']; 
                 $variables['node']->content = preg_replace('#<h2>[^<]+</h2>#', '<h1><span id="seakey-title">' . $genus . ' ' . $species . '</span> <small>' . $author . ' </small></h1>', $variables['node']->content);
-                
-                
             }
         }
     }

@@ -52,13 +52,11 @@
     <?php endforeach; ?>
   </div>
   
- */
-?>
-<div class="<?php print $classes; ?>"<?php print $attributes; ?>>
+  
   <?php if (!$label_hidden): ?>
     <h2 class="field-label"<?php print $title_attributes; ?>><a name="<?php print $element['#field_name'] ?>"><?php print $label ?></a></h2>
   <?php endif; ?>
-  <div id="<?php if(count($element['#items']) > 3) { print('smoothdivscroll'); } ?>">
+  <div<?php if(count($element['#items']) > 3) { print(' id="smoothdivscroll"'); } ?>>
     <?php 
     foreach($element['#items'] as $item) {
       $node = node_load($item['nid']);
@@ -68,5 +66,44 @@
       print '<a title="' . $title . '" class="fancybox" href="' . image_style_url('extra_large', $node->field_image['und'][0]['uri']) . '" data-fancybox-group="gallery"><img src="' . image_style_url('medium', $node->field_image['und'][0]['uri']) . '" alt="' . $node->field_image['und'][0]['alt'] . '" title="' . $title . '"></a>';
     }
     ?>
-  </div>
-</div>
+  
+ */
+?>
+
+<?php 
+    // Unfortunately we have to phpifhy this whole thing, above is what we had previously.
+    $map_src = '/sites/default/files/seakey-map-data/img/' . $element['#object']->nid . '.jpg';                
+    $map_exists = file_exists(getcwd() . str_replace('/', '\\', $map_src));
+    $output = '';
+
+    if($map_exists) {
+        $output .= '<div class="row"><div class="col-sm-9" id="smallsmoothdivscrollwrapper">';
+    }
+
+    $output .= '<div class="' . $classes . '"' . $attributes . '>';
+
+    if(!$label_hidden) {
+        $output .= '<h2 class="field-label"' . $title_attributes . '><a name="' . $element['#field_name'] . '">' . $label . '</a></h2>';
+    }
+    $output .= '<div';
+    if(count($element['#items']) > 3 or true) { 
+        $output .= ' id="smoothdivscroll"'; 
+    }
+    $output .= '>';
+
+    foreach($element['#items'] as $item) {
+      $node = node_load($item['nid']);
+      $title = $node->field_image['und'][0]['title'];
+      $title .= ' - &copy; ' . $node->field_iptc_copyright_notice['und'][0]['safe_value'];
+      $title .= ' &amp photographed by: ' . $node->field_iptc_by_line['und'][0]['safe_value'];
+      $output .= '<a title="' . $title . '" class="fancybox" href="' . image_style_url('extra_large', $node->field_image['und'][0]['uri']) . '" data-fancybox-group="gallery"><img src="' . image_style_url('medium', $node->field_image['und'][0]['uri']) . '" alt="' . $node->field_image['und'][0]['alt'] . '" title="' . $title . '"></a>';
+    }
+
+    $output .= '</div></div>';
+
+    if($map_exists) {
+        $output .= '</div><div class="col-sm-3" id="map"><h2 class="field-label"><a name="field_map">Map</a></h2><a href="' . $map_src .'" class="fancybox"><img src="' . $map_src . '"></a></div></div>';
+    }
+
+    print $output;
+?>

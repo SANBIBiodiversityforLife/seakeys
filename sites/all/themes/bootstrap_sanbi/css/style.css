@@ -12,6 +12,10 @@
     display: none;
 }
 
+.node-type-seakey div.page-header {
+    border-top: 1px solid #eee;
+}
+
 ul.links {
     float: right;
     margin: 0;
@@ -177,7 +181,7 @@ ul.classification {
     list-style: none;
 }
 .field-name-field-sk-images img {
-    padding-right: 10px;
+    padding-right: 5px;
 }
 .fancybox-custom .fancybox-skin {
     box-shadow: 0 0 50px #222;
@@ -207,4 +211,15 @@ header#navbar .navbar-collapse { padding-left: 0; }
 }
 #seakey-title {
     font-style: italic;
+}
+
+.node-type-seakey #map img {
+    width: 165px;
+    height: 165px;
+    padding: 10px;
+    border: 1px solid #eee;
+    -webkit-box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.75);}
+.node-type-seakey #map {
 }

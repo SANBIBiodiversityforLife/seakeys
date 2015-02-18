@@ -96,3 +96,7 @@ label.error{
     margin-right: 7px;
     margin-top: 7px;
 }
+.field-name-field-map-data p.help-block {
+    color: inherit; 
+    font-size: inherit;
+}
