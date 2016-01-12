@@ -120,6 +120,8 @@ form#search-form .col-md-2 {
 .page-search h2 {
     text-align: center;
     font-weight: bold;
+    margin: 20px 0;
+    padding-top: 20px;
 }
 .node-type-seakey h3 a,
 .node-type-seakey h2.field-label a {
@@ -187,17 +189,17 @@ ul.classification {
     box-shadow: 0 0 50px #222;
 }
 
-#block-system-main ul.links {
+.node-type-seakey #block-system-main ul.links {
     padding-top: 20px;
     padding-bottom: 20px;
 }
-#block-system-main li.print_pdf a {
+.node-type-seakey #block-system-main li.print_pdf a {
     background: top left no-repeat url('/sites/all/themes/bootstrap_sanbi/img/pdf.png');
 }
-#block-system-main li a {
+.node-type-seakey #block-system-main li a {
     padding: 15px 0 30px 55px;
 }
-#block-system-main li.print_html a {
+.node-type-seakey #block-system-main li.print_html a {
     background: top left no-repeat url('/sites/all/themes/bootstrap_sanbi/img/printer.png');
 }
 header#navbar .navbar-collapse { padding-left: 0; }
@@ -228,4 +230,35 @@ header#navbar .navbar-collapse { padding-left: 0; }
     box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.45); 
 }
 .node-type-seakey #map {
+}
+.view-latest-seakeys .views-row {
+    width: 200px;
+    float: left;
+    margin: 25px 5px 5px 5px;
+    padding: 5px;
+    height: 200px;
+    overflow: hidden;
+}
+.view-latest-seakeys .views-row .field-content h2,
+.view-latest-seakeys .views-field .field-content h2 {
+    display: none;
+}
+.view-latest-seakeys .views-row .views-field-title {
+    font-weight: bold;
+}
+.view-latest-seakeys .views-field-changed {
+    font-size: 10px;
+}
+.view-latest-seakeys .views-field-title {
+    height: 3em;
+    overflow: hidden;
+}
+.view-latest-seakeys ul.pagination {
+    clear: both;
+}
+.view-latest-seakeys .view-content {
+    overflow: auto;
+}
+.ui-theme-basic-green.ui-autocomplete-input {
+    background-position: 100% 12px !important;
 }
