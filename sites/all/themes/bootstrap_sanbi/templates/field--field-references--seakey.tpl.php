@@ -79,7 +79,30 @@
     <h4><a name="how_to_cite">How to cite</a></h4>
     <?php 
         $node = $element['#object']; //array_shift($page['content']['system_main']['nodes'])['#node']; 
-        $user = user_load($node->uid);
-        print($user->name . ', ' . date('Y', $node->created) . ', ' . $node->title . ', SeaKeys species page.');
+        
+        // Previous to Jan 2016 seakeys used to be cited with the user, now they are cited with the article authors field (new)
+        // print($user->name . ', ' . date('Y', $node->created) . ', ' . $node->title . ', SeaKeys species page.');
+        // Added stuff below to implement new way of doing things
+        
+        $names = [];
+        foreach($node->field_article_authors['und'] as $author) {
+            $names[] = $author['node']->title;
+        }
+        if(!empty($names)) {
+            if(count($names) > 1) {
+                $last_name = array_pop($names);
+                $names = implode($names, ', ') . ' & ' . $last_name;
+            }
+            else {
+                $names = $names[0];
+            }
+        }
+        else {
+            // Fall back to the old way of doing it
+            $user = user_load($node->uid);
+            $names = $user->name;
+        }
+        
+        print($names. ', ' . date('Y', $node->created) . ', ' . $node->title . ', SeaKeys species page.');
     ?>
 </div>

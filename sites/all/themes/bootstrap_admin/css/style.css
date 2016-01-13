@@ -46,15 +46,6 @@ form>div>.form-group {
 .field-multiple-table .form-autocomplete>.input-group {
     width: 80% !important;
 }
-
-.field-multiple-table  .entityconnect-add {
-    margin-right: 70px !important;
-    margin-top: -2px !important;
-}
-.entityconnect-edit {
-    margin-right: 70px;
-    margin-top: -2px;
-}
 select#edit-field-biological-classification-und-0-tid-select-8 {
     display: none !important;
 }
@@ -99,4 +90,25 @@ label.error{
 .field-name-field-map-data p.help-block {
     color: inherit; 
     font-size: inherit;
+}
+
+/* Entity connect */
+/* Previous build of entity connect without icons 
+.field-multiple-table  .entityconnect-add {
+    margin-right: 70px !important;
+    margin-top: -2px !important;
+}
+
+.entityconnect-edit {
+    margin-right: 70px;
+    margin-top: -2px;
+} */
+.field-type-node-reference .form-type-textfield .input-group {
+    float: left;
+    margin-right: 10px;
+}
+.field-type-node-reference .form-item select.form-select {
+    float: left;
+    width: 80%;
+    margin-right: 10px;
 }
